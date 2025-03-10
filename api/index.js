@@ -236,7 +236,6 @@ app.post("/api/contact", async (req, res) => {
 app.get("/", (req, res) => {
   res.send("Server is running");
 });
-c;
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
