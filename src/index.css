@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-secondary-900 overflow-x-hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-serif font-medium text-secondary-800 mb-8 md:mb-12;
+  }
+  
+  .section-subtitle {
+    @apply text-xl font-serif text-secondary-700 mb-6;
+  }
+  
+  .btn {
+    @apply px-6 py-2.5 rounded-full font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-500 hover:bg-primary-600 text-white focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-secondary-100 hover:bg-secondary-200 text-secondary-800 focus:ring-secondary-300;
+  }
+  
+  .btn-accent {
+    @apply btn bg-accent-500 hover:bg-accent-600 text-white focus:ring-accent-500;
+  }
+  
+  .btn-outline {
+    @apply btn border-2 border-primary-500 text-primary-600 hover:bg-primary-50 focus:ring-primary-500;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-sm p-6 transition-all duration-300;
+  }
+  
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-sm rounded-2xl shadow-sm border border-primary-100/50;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg bg-white border border-secondary-200 text-secondary-800 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-800 mr-2 mb-2;
+  }
+  
+  .skill-badge {
+    @apply badge hover:bg-primary-200 transition-colors duration-300 cursor-default;
+  }
+
+  .status-badge {
+    @apply absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .status-ongoing {
+    @apply bg-primary-500 text-white;
+  }
+
+  .status-completed {
+    @apply bg-accent-500 text-white;
+  }
+
+  .status-planned {
+    @apply bg-secondary-500 text-white;
+  }
+}
+
+/* Custom cursor styles */
+.custom-cursor {
+  @apply fixed pointer-events-none z-50 w-6 h-6 rounded-full mix-blend-difference transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-100 ease-out;
+}
+
+/* Smooth scrollbar for Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(115, 182, 140, 0.5) transparent;
+}
+
+/* Smooth scrollbar for Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(115, 182, 140, 0.5);
+  border-radius: 20px;
+}
+
+/* Animations */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-wave-bg {
+  background-size: 400% 400%;
+  animation: wave 15s ease infinite;
+}
+
+@keyframes wave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Ink splash effect */
+.ink-splash {
+  position: relative;
+  overflow: hidden;
+}
+
+.ink-splash::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(115, 182, 140, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.6s ease-out, height 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+.ink-splash:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 1;
+}
+
+/* Glowing border effect */
+.glow-border {
+  box-shadow: 0 0 10px rgba(234, 182, 136, 0.4), 0 0 20px rgba(115, 182, 140, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.glow-border:hover {
+  box-shadow: 0 0 15px rgba(234, 182, 136, 0.6), 0 0 30px rgba(115, 182, 140, 0.3);
+}
+
+/* Floating glowing orbs */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0.5;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.glow-orb-1 {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(115, 182, 140, 0.6) 0%, rgba(115, 182, 140, 0) 70%);
+  top: 15%;
+  left: 10%;
+  animation: float-orb-1 20s ease-in-out infinite alternate;
+}
+
+.glow-orb-2 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(234, 182, 136, 0.5) 0%, rgba(234, 182, 136, 0) 70%);
+  bottom: 20%;
+  right: 15%;
+  animation: float-orb-2 25s ease-in-out infinite alternate;
+}
+
+.glow-orb-3 {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(99, 125, 153, 0.4) 0%, rgba(99, 125, 153, 0) 70%);
+  top: 40%;
+  right: 25%;
+  animation: float-orb-3 18s ease-in-out infinite alternate;
+}
+
+.glow-orb-4 {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(115, 182, 140, 0.4) 0%, rgba(115, 182, 140, 0) 70%);
+  bottom: 30%;
+  left: 20%;
+  animation: float-orb-4 22s ease-in-out infinite alternate;
+}
+
+.glow-orb-5 {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(234, 182, 136, 0.5) 0%, rgba(234, 182, 136, 0) 70%);
+  top: 60%;
+  left: 30%;
+  animation: float-orb-5 15s ease-in-out infinite alternate;
+}
+
+@keyframes float-orb-1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100px, 50px);
+  }
+}
+
+@keyframes float-orb-2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-120px, -80px);
+  }
+}
+
+@keyframes float-orb-3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-70px, 100px);
+  }
+}
+
+@keyframes float-orb-4 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(80px, -60px);
+  }
+}
+
+@keyframes float-orb-5 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 80px);
+  }
+}
