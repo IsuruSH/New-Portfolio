@@ -56,7 +56,7 @@ function App() {
         <ProjectsSection />
         <AboutSection />
         <SkillsSection />
-        {/* <BlogSection /> */}
+        <BlogSection />
         <CertificationsSection />
         <ContactSection />
       </main>
